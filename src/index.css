@@ -12,6 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 .main-container{
   display: flex;
@@ -19,4 +25,14 @@ code {
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
+}
+.btn{
+  display: flex;
+  margin: 1em auto;
+  padding: 1em;
+  background-color: #DDFFE7;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-weight: bold;
 }

@@ -8,11 +8,17 @@ const Home = () => {
     const [pokemon, setPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [number, setNumber] = useState(0)
+    let link = 'https://pokeapi.co/api/v2/pokemon?offset='+ number +'&limit=24'
+    
+
+  
+
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20');
+                const response = await fetch(link);
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }
@@ -31,7 +37,10 @@ const Home = () => {
                         return response.json();
                     })
                 );
-
+                
+                if (number > 1000) {
+                    setNumber(number.slice(1, 3))
+                }
                 // Setando a lista de Pokémons com os detalhes obtidos
                 setPokemon(pokemonDetails);
                 setIsLoading(false);
@@ -40,9 +49,11 @@ const Home = () => {
                 setIsLoading(false);
             }
         };
-
+        
         fetchData();
-    }, []);
+        
+    }, [number, link]);
+    
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -53,7 +64,7 @@ const Home = () => {
     }
 
     return (
-        <>
+        <div className='container'> 
             <h1>Pokémon List</h1>
             <div className='main-container'>
 
@@ -67,9 +78,13 @@ const Home = () => {
                     />
                 ))}
 
+
             </div>
 
-        </>
+
+            <button className='btn' onClick={() => setNumber(number + 24)}>Carregar +</button>
+
+        </div>
     )
 }
 

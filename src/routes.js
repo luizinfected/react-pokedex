@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Error from './pages/Error'
 import About from './pages/About'
+import Group from './pages/Group'
 
 
 function RoutesApp() {
@@ -13,6 +14,7 @@ function RoutesApp() {
                 <Route path="*" element={<Error/> } />
                 <Route path="/" element={<Home/> } />
                 <Route path="/about" element={<About/> } />
+                <Route path="/group" element={<Group/> } />
             </Routes>
         </BrowserRouter>
     )

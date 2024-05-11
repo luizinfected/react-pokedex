@@ -7,6 +7,7 @@ function Header() {
             <div className="menu">
                 <Link to="/">Home</Link>
                 <Link to="/about">Sobre</Link>
+                <Link to="/group">Grupo</Link>
                 <Link to="/contato">Contato</Link>
             </div>
 
